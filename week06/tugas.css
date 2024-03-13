@@ -1,0 +1,74 @@
+h1 {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+  }
+  
+  h2 {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+  }
+  
+  section {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    position: relative;
+    margin: 12px 0;
+    margin-bottom: 20px;
+  }
+  
+  .form-group input {
+    padding: 8px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: grey solid 2px;
+    background-color: transparent;
+    color: black;
+    transition: 0.15s all ease;
+
+  }
+  
+  .form-group input:focus {
+    border-color: white;
+  }
+  
+  .form-group input::placeholder {
+    color: transparent;
+  }
+  
+  .form-group .form-label {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    font-size: 18px;
+    margin-bottom:0 25px;
+    margin: auto;
+    padding: 0 10px;
+    color: grey;
+    pointer-events: none;
+    transition: 0.15s all ease;
+  }
+  
+  .form-group input:focus + .form-label,
+  .form-group input:not(:placeholder-shown) + .form-label {
+    transform: translate(5px, -22px);
+    background-color: white;
+    font-size: 14px;
+    color: black;
+  }
+  
+  .submit-button {
+    width: 120px;
+    margin-top: 20px;
+  }
+  .custom-input{
+    margin-bottom: 8px;
+  }

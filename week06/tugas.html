@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas</title>
+    <link rel="stylesheet" href="tugas.css" />
+  </head>
+
+  <body>
+    <h1>Document Object Model (DOM)</h1>
+
+    <h2>Pendaftaran Kelompok</h2>
+    <section>
+      <div class="form-group">
+        <input type="text" id="namaKelompok" placeholder="Nama Kelompok" />
+        <label for="namaKelompok" class="form-label">Nama Kelompok</label>
+        <br />
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          id="jumlahAnggota"
+          placeholder="Jumlah Anggota"
+          onchange="generateAnggotaBoxes()"
+        />
+        <label for="jumlahAnggota" class="form-label">Jumlah Anggota</label>
+      </div>
+
+      <h2>Anggota Kelompok:</h2>
+      <div id="anggotaBoxes" class="form-group anggota-boxes"></div>
+
+      <input
+        type="submit"
+        value="Daftar Kelompok"
+        class="submit-button"
+        onclick="submitForm()"
+      />
+    </section>
+
+    <script src="tugas.js"></script>
+  </body>
+</html>
