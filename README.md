@@ -1,2 +1,2 @@
 kasihan aaaa
-dua tiga tutup botol, muka lu kayak botol
+dua tiga tutup botol, muka rafi kayak botol
