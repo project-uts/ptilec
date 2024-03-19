@@ -17,21 +17,18 @@
                 <div class="akses">||</div>
             </div>
         </div>
-        <div class="main">
-            <label for="NIM">NIM</label>
+        <form class="main" id="crudForm" onsubmit="addRecord(event)">
+            <label for="nim">NIM</label>
             <input type="text" placeholder="Nomor Induk Mahasiswa" id="nim">
-            <label for="NL">Nama Lengkap</label>
-            <input type="text" placeholder="Nama Lengkap" id="nama">
-            <label for="alamat">Alamat</label>
-            <input type="text" placeholder="Alamat Tempat Tinggal Asal" id="alamat">
-            <input type="submit" value="+Tambah" class="submit-btn" onclick="simpandantampilkan()">
-        </div>
-        <div id="tampil">
-            <div id="data-container"></div>
+            <label for="name">Nama Lengkap</label>
+            <input type="text" placeholder="Nama Lengkap" id="name">
+            <label for="address">Alamat</label>
+            <input type="text" placeholder="Alamat Tempat Tinggal Asal" id="address">
+            <button type="submit" class="submit-btn">+ Tambah</button>
+        </form>
+        <div id="records">
         </div>
     </div>
-
-
 
     <script src="UTS.js"></script>
 </body>
