@@ -57,3 +57,61 @@ body {
   box-sizing: border-box;
   padding: 3px;
 }
+
+.table-container{
+  margin-top: 20px;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,td{
+  padding: 8px;
+  border: 1px solid lightslategrey;
+}
+
+th{
+  background-color: lightslategrey;
+}
+
+.button-container{
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.button-container button{
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button.delete-btn{
+  background-color: #f44336;
+}
+
+.button-container button.edit-btn{
+  background-color: rgb(0, 204, 255);
+  text-align: center;
+  justify-content: center;
+}
+
+.submit-btn{
+  background-color: #4CAF50;
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.justify{
+  justify-content: center;
+  text-align: center;
+}

@@ -35,11 +35,12 @@ function addRecord(event) {
   const nameInput = form.name;
   const addressInput = form.address;
 
-  if(nimInput && nameInput && addressInput) {
-    const nim = nimInput.value.trim();
-    const name = nameInput.value.trim();
-    const address = addressInput.value.trim();
+  const nim = nimInput.value.trim();
+  const name = nameInput.value.trim();
+  const address = addressInput.value.trim();
 
+  if(nim && name && address) {
+    console.log('test');
     const record = {nim, name, address};
     records.push(record);
     localStorage.setItem('records', JSON.stringify(records));
@@ -52,17 +53,67 @@ function addRecord(event) {
 
   function displayRecords() {
     recordsContainer.innerHTML = '';
-    records.forEach((record, index)=>{
-      const recordDiv = document.createElement('div');
-      recordDiv.innerHTML = `
-      <p><strong>NIM:</strong> ${record.nim}</p>
-      <p><strong>Name:</strong> ${record.name}</p>
-      <p><strong>Address:</strong> ${record.address}</p>
-      <button onclick="editRecord(${index})">Edit</button>
-      <button onclick="deleteRecord(${index})">Delete</button>
-      `;
-      recordsContainer.appendChild(recordDiv);
-    });
+    const tableContainer = document.createElement('div');
+    tableContainer.classList.add('table-container')
+
+    const table = document.createElement('table');
+    const headerRow = table.insertRow();
+
+    // Header
+    const nimHeader = document.createElement('th');
+    nimHeader.textContent = 'NIM';
+    headerRow.appendChild(nimHeader);
+
+    const nameHeader = document.createElement('th');
+    nameHeader.textContent = 'Name';
+    headerRow.appendChild(nameHeader);
+
+    const addressHeader = document.createElement('th');
+    addressHeader.textContent = 'Address';
+    headerRow.appendChild(addressHeader);
+
+    const settingsHeader = document.createElement('th');
+    settingsHeader.textContent = 'Pengaturan';
+    headerRow.appendChild(settingsHeader);
+
+    // Records
+    records.forEach((record, index) => {
+    const row = table.insertRow();
+
+    const nimCell = row.insertCell();
+    nimCell.textContent = record.nim;
+    nimCell.classList.add('justify');
+
+    const nameCell = row.insertCell();
+    nameCell.textContent = record.name;
+    nameCell.classList.add('justify');
+
+    const addressCell = row.insertCell();
+    addressCell.textContent = record.address;
+    addressCell.classList.add('justify');
+
+    const settingsCell = row.insertCell();
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.classList.add('edit-btn');
+    editButton.onclick = () => editRecord(index);
+    
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('delete-btn');
+    deleteButton.onclick = () => deleteRecord(index);
+   
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(deleteButton);
+
+    settingsCell.appendChild(buttonContainer);
+  });
+
+  tableContainer.appendChild(table);
+  recordsContainer.appendChild(table);
   }
 
   function editRecord(index) {
