@@ -118,9 +118,11 @@ function addRecord(event) {
 
   function editRecord(index) {
   const record = records[index];
+  const editNimSpan = document.getElementById('editNim');
   const editNameInput = document.getElementById('editName');
   const editAddressInput = document.getElementById('editAddress');
 
+  editNimSpan.textContent = record.nim;
   editNameInput.value = record.name;
   editAddressInput.value = record.address;
 
