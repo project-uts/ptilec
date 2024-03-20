@@ -153,3 +153,11 @@ th{
   text-decoration: none;
   cursor: pointer;
 }
+
+.readonly {
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  display: inline-block;
+  margin-bottom: 10px;
+}
