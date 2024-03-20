@@ -166,5 +166,12 @@ window.onclick = function(event) {
     }
   }
 
+  function reverseRecords(){
+    records.reverse();
+    localStorage.setItem('records', JSON.stringify(records));
+    displayRecords();
+  }
+
+  document.querySelector('.reverse-btn').addEventListener('click', reverseRecords);
   form.addEventListener('submit', addRecord);
   displayRecords();

@@ -111,6 +111,16 @@ th{
   cursor: pointer;
 }
 
+.reverse-btn{
+  background-color: #4CAF50;
+  padding: 8px 16px;
+  width: 110px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .justify{
   justify-content: center;
   text-align: center;
