@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="UTS.css">
     <title>UTS</title>
 </head>
@@ -24,7 +25,7 @@
             <input type="text" placeholder="Nama Lengkap" id="name">
             <label for="address">Alamat</label>
             <input type="text" placeholder="Alamat Tempat Tinggal Asal" id="address">
-            <button type="submit" class="submit-btn">+ Tambah</button>
+            <button type="submit" class="submit-btn">&#10133; Tambah</button>
             <button type="button" class="reverse-btn">&#8593;&#8595;</button>
         </form>
         <div id="records">
@@ -41,9 +42,11 @@
             <input type="text" id="editName">
             <label for="editAddress">Alamat</label>
             <input type="text" id="editAddress">
-            <button id="saveEditBtn">Save</button>
+            <button id="saveEditBtn" class="save-btn"><i class="fas fa-save"></i> Save</button>
+            <button class="cancel-btn" id="cancelEditBtn"><i class="fas fa-times"></i> Cancel</button>
         </div>
     </div>
+
 
     <script src="UTS.js"></script>
 </body>

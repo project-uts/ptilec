@@ -1,30 +1,3 @@
-// function simpanDanTampilkan() {
-
-//   var nim = document.getElementById('nim').value;
-//   var nama = document.getElementById('nama').value;
-//   var alamat = document.getElementById('alamat').value;
-
-//   localStorage.setItem('nim', nim);
-//   localStorage.setItem('nama', nama);
-//   localStorage.setItem('alamat', alamat);
-
-
-//   var dataCont = document.getElementById('data-container');
-//   dataCont.innerHTML = nim + ' ' + nama + '' +alamat
-
-//   tampilkan();
-// }
-
-// function tampilkan() {
-//   var nama = localStorage.getItem('nim');
-//   var nim = localStorage.getItem('nama');
-//   var alamat = localStorage.getItem('alamat');
-
-//   var dataCont = document.getElementById('data-container');
-//   dataCont.innerHTML = nim + ' ' + nama + '' +alamat
-// }
-
-
 const form = document.getElementById('crudForm');
 const recordsContainer = document.getElementById('records');
 let records = JSON.parse(localStorage.getItem('records')) || [];
@@ -94,13 +67,13 @@ function addRecord(event) {
 
     const settingsCell = row.insertCell();
     const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
+    editButton.innerHTML = '<i class="fas fa-edit">Edit</i>';
     editButton.classList.add('edit-btn');
     editButton.onclick = () => editRecord(index);
     
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt">Delete</i>';
     deleteButton.classList.add('delete-btn');
     deleteButton.onclick = () => deleteRecord(index);
    
@@ -150,6 +123,12 @@ function saveEdit(index) {
   }
 }
 
+const cancelEditBtn = document.getElementById('cancelEditBtn');
+cancelEditBtn.addEventListener('click', () => {
+  const modal = document.getElementById('editModal');
+  modal.style.display = "none";
+});
+
 window.onclick = function(event) {
   const modal = document.getElementById('editModal');
   if (event.target == modal) {
@@ -157,6 +136,11 @@ window.onclick = function(event) {
   }
 }
 
+const closeModalBtn = document.querySelector('.close');
+closeModalBtn.addEventListener('click', () => {
+  const modal = document.getElementById('editModal');
+  modal.style.display = "none";
+});
 
   function deleteRecord(index) {
     if(confirm('Are you sure want to delete this record?')){
@@ -164,13 +148,13 @@ window.onclick = function(event) {
       localStorage.setItem('records', JSON.stringify(records));
       displayRecords();
     }
-  }
+}
 
   function reverseRecords(){
     records.reverse();
     localStorage.setItem('records', JSON.stringify(records));
     displayRecords();
-  }
+}
 
   document.querySelector('.reverse-btn').addEventListener('click', reverseRecords);
   form.addEventListener('submit', addRecord);
