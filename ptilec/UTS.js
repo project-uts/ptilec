@@ -117,17 +117,44 @@ function addRecord(event) {
   }
 
   function editRecord(index) {
-    const newNim = prompt('Enter New Nim');
-    const newName = prompt('Enter New Name');
-    const newAddress = prompt('Enter New Addres');
-    if(newNim && newName && newAddress ) {
-      records[index].nim = newNim;
-      records[index].name = newName;
-      records[index].address = newAddress;
-      localStorage.setItem('records', JSON.stringify(records));
-      displayRecords();
-    }
+  const record = records[index];
+  const editNameInput = document.getElementById('editName');
+  const editAddressInput = document.getElementById('editAddress');
+
+  editNameInput.value = record.name;
+  editAddressInput.value = record.address;
+
+  const modal = document.getElementById('editModal');
+  modal.style.display = "block";
+
+  const saveEditBtn = document.getElementById('saveEditBtn');
+  saveEditBtn.onclick = () => saveEdit(index);
+}
+
+function saveEdit(index) {
+  const newName = document.getElementById('editName').value.trim();
+  const newAddress = document.getElementById('editAddress').value.trim();
+
+  if (newName && newAddress) {
+    records[index].name = newName;
+    records[index].address = newAddress;
+    localStorage.setItem('records', JSON.stringify(records));
+    displayRecords();
+
+    const modal = document.getElementById('editModal');
+    modal.style.display = "none";
+  } else {
+    alert('Nama lengkap dan alamat tidak boleh kosong');
   }
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('editModal');
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 
   function deleteRecord(index) {
     if(confirm('Are you sure want to delete this record?')){
