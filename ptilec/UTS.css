@@ -239,3 +239,65 @@ th{
   background-color: #ffcc00; 
   color: black;
 }
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.notification-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-body {
+  background-color: white;
+  padding: 10px;
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.alert-header {
+  background-color: #ffcc00;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-body {
+  background-color: white; 
+  padding: 10px;
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
