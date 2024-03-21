@@ -13,14 +13,15 @@ function addRecord(event) {
   const address = addressInput.value.trim();
 
   if(nim && name && address) {
-    console.log('test');
     const record = {nim, name, address};
     records.push(record);
     localStorage.setItem('records', JSON.stringify(records));
     displayRecords();
     form.reset();
+
+    showAlert('Data berhasil ditambahkan!', 'success');
   } else {
-    alert('Tidak dapat menambahkan mahasiswa')
+    showAlert('Tidak dapat menambahkan data karena data tidak lengkap', 'error');
   }
 }
 
@@ -115,11 +116,12 @@ function saveEdit(index) {
     records[index].address = newAddress;
     localStorage.setItem('records', JSON.stringify(records));
     displayRecords();
+    showAlert('Data Mahasiswa Berhasil di Perbaharui', 'success');
 
     const modal = document.getElementById('editModal');
     modal.style.display = "none";
   } else {
-    alert('Nama lengkap dan alamat tidak boleh kosong');
+    alert('Tidak Dapat Menambah Mahasiswa');
   }
 }
 
@@ -147,6 +149,7 @@ closeModalBtn.addEventListener('click', () => {
       records.splice(index, 1);
       localStorage.setItem('records', JSON.stringify(records));
       displayRecords();
+      showAlert('Data Mahasiswa Berhasil Dihapus!', 'success');
     }
 }
 
@@ -159,3 +162,15 @@ closeModalBtn.addEventListener('click', () => {
   document.querySelector('.reverse-btn').addEventListener('click', reverseRecords);
   form.addEventListener('submit', addRecord);
   displayRecords();
+
+function showAlert(message, type) {
+  const alertDiv = document.createElement('div');
+  alertDiv.className = `alert ${type}`;
+  alertDiv.appendChild(document.createTextNode(message));
+  document.body.appendChild(alertDiv);
+
+  setTimeout(() => {
+    alertDiv.remove();
+  }, 3000); 
+}
+
