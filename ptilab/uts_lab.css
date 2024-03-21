@@ -1,0 +1,141 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black;
+}
+
+.money {
+    width: 200px;
+    height: 200px;
+}
+
+.input-name{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-name label {
+    text-align: center;
+    margin: 10px;
+    font-weight: 700;
+}
+
+ .input-name input{
+    background-color: rgb(165, 165, 165);
+    width: 200px;
+    border: solid black;
+    padding: 5px;
+}
+
+.input-name button { 
+    width: 100px;
+    background-color: red;
+    padding: 5px 20px;
+    border-radius: 1rem;
+    margin: 5px;
+}
+.input-name button a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    justify-content: space-evenly;
+    margin: 0;
+    align-items: center;
+  }
+
+  .navbar img {
+    width: 50px;
+    height: auto;
+  }
+
+  .navbar a.active {
+    color: red;
+  }
+
+  .main-content{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex: auto;
+    justify-content: space-around;
+  }
+  
+  .balance {
+    font-weight: 700;
+    width: 25%;
+    height: fit-content;
+    background-color: rgb(171, 171, 171);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  .amount {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+  }
+
+  .amount .rupiah{
+    margin: 0;
+    font-size: x-large;
+  }
+
+  .amount .nominal{
+    font-size: xx-large;
+    text-align: end;
+  }
+
+  
+  .transaction {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    width: 40%;
+    height: 80%;
+    background-color: rgb(171, 171, 171);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  .transaction .info {
+    font-size: xx-large;
+    text-align: center;
+    height: 80%;
+    align-content: center;
+  }
