@@ -19,9 +19,9 @@ function addRecord(event) {
     displayRecords();
     form.reset();
 
-    showAlert('Data berhasil ditambahkan!', 'success');
+    showAlert('Data Mahasiswa Berhasil Ditambahkan!', 'success');
   } else {
-    showAlert('Tidak dapat menambahkan data karena data tidak lengkap', 'error');
+    showAlert('Tidak dapat menambahkan data karena data tidak lengkap', 'warning');
   }
 }
 
@@ -116,7 +116,7 @@ function saveEdit(index) {
     records[index].address = newAddress;
     localStorage.setItem('records', JSON.stringify(records));
     displayRecords();
-    showAlert('Data Mahasiswa Berhasil di Perbaharui', 'success');
+    showAlert('Data Mahasiswa Berhasil di Perbaharui', 'info');
 
     const modal = document.getElementById('editModal');
     modal.style.display = "none";
@@ -149,7 +149,7 @@ closeModalBtn.addEventListener('click', () => {
       records.splice(index, 1);
       localStorage.setItem('records', JSON.stringify(records));
       displayRecords();
-      showAlert('Data Mahasiswa Berhasil Dihapus!', 'success');
+      showAlert('Data Mahasiswa Berhasil Dihapus!', 'error');
     }
 }
 
