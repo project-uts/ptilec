@@ -19,7 +19,7 @@ function addRecord(event) {
     displayRecords();
     form.reset();
 
-    showAlert('Data Mahasiswa Berhasil Ditambahkan!', 'success');
+    showNotification('Data Mahasiswa Berhasil Ditambahkan!', 'Added!');
   } else {
     showAlert('Tidak dapat menambahkan data karena data tidak lengkap', 'warning');
   }
@@ -116,7 +116,7 @@ function saveEdit(index) {
     records[index].address = newAddress;
     localStorage.setItem('records', JSON.stringify(records));
     displayRecords();
-    showAlert('Data Mahasiswa Berhasil di Perbaharui', 'info');
+    showNotification('Data Mahasiswa Berhasil di Perbaharui', 'Updated!', 'info');
 
     const modal = document.getElementById('editModal');
     modal.style.display = "none";
@@ -149,7 +149,7 @@ closeModalBtn.addEventListener('click', () => {
       records.splice(index, 1);
       localStorage.setItem('records', JSON.stringify(records));
       displayRecords();
-      showAlert('Data Mahasiswa Berhasil Dihapus!', 'error');
+      showNotification('Data Mahasiswa Berhasil Dihapus!', 'Deleted!', 'error');
     }
 }
 
@@ -166,11 +166,76 @@ closeModalBtn.addEventListener('click', () => {
 function showAlert(message, type) {
   const alertDiv = document.createElement('div');
   alertDiv.className = `alert ${type}`;
-  alertDiv.appendChild(document.createTextNode(message));
-  document.body.appendChild(alertDiv);
+  
+  const header = document.createElement('div');
+  header.className = 'alert-header';
+  header.style.backgroundColor = '#ffcc00'; 
+  
+  const body = document.createElement('div');
+  body.className = 'alert-body';
+  body.textContent = message;
 
-  setTimeout(() => {
+  const added = document.createElement('span');
+  added.textContent = 'Warning!';
+  
+  const time = document.createElement('span');
+  time.textContent = 'just now~';
+  time.style.fontSize = '0.8em';
+  
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'x';
+  closeButton.className = 'close-btn';
+  closeButton.onclick = function() {
     alertDiv.remove();
-  }, 3000); 
+  };
+
+  header.appendChild(added);
+  header.appendChild(time);
+  header.appendChild(closeButton);
+
+  alertDiv.appendChild(header);
+  alertDiv.appendChild(body);
+  
+  document.body.appendChild(alertDiv);
 }
+
+
+
+function showNotification(message, action, type) {
+  const notificationDiv = document.createElement('div');
+  notificationDiv.className = 'notification';
+  
+  const header = document.createElement('div');
+  header.className = 'notification-header';
+  header.style.backgroundColor = type === 'error' ? '#f44336' : type === 'info' ? 'rgb(0, 204, 255)' : type === 'warning' ? '#ffcc00' : '#4CAF50'; 
+  
+  const body = document.createElement('div');
+  body.className = 'notification-body';
+  body.textContent = message;
+
+  const added = document.createElement('span');
+  added.textContent = action;
+  
+  const time = document.createElement('span');
+  time.textContent = 'just now~';
+  time.style.fontSize = '0.8em';
+  
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'x';
+  closeButton.className = 'close-btn';
+  closeButton.onclick = function() {
+    notificationDiv.remove();
+  };
+
+  header.appendChild(added);
+  header.appendChild(time);
+  header.appendChild(closeButton);
+
+  notificationDiv.appendChild(header);
+  notificationDiv.appendChild(body);
+  
+  document.body.appendChild(notificationDiv);
+}
+
+
 
